@@ -4,7 +4,7 @@
 
 <head>
   
-  <title>Archive：2021 - Parksi</title>
+  <title>XCA简易教程 附生成S/MIME证书 - Parksi</title>
   <meta charset="UTF-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -12,18 +12,35 @@
   
 
   <link rel="shortcut icon" href="https://z3.ax1x.com/2021/04/17/ch5ZZT.png" type="image/png" />
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Parksi">
-<meta property="og:url" content="https://www.parksi.top/archives/2021/index.html">
+  <meta name="description" content="我们的数字化生活处处都离不开x509证书，申请ssl证书可能需要不菲的金钱，虽然也有免费的，但我们有没有什么方法自己搞定x509呢？ 概念x509是通过证书链完成信任认证的，也就是说最终证书想要被信任就必须要有上一级的证书作签名证书。 Root CA -&gt; 二级CA -&gt; ... -&gt; 最终证书  这是浏览器等客户端验证证书是否可信的路径。   自签证书准备在XCA官网下载并安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XCA简易教程 附生成S&#x2F;MIME证书">
+<meta property="og:url" content="https://www.parksi.top/2021/04/17/XCA/index.html">
 <meta property="og:site_name" content="Parksi">
+<meta property="og:description" content="我们的数字化生活处处都离不开x509证书，申请ssl证书可能需要不菲的金钱，虽然也有免费的，但我们有没有什么方法自己搞定x509呢？ 概念x509是通过证书链完成信任认证的，也就是说最终证书想要被信任就必须要有上一级的证书作签名证书。 Root CA -&gt; 二级CA -&gt; ... -&gt; 最终证书  这是浏览器等客户端验证证书是否可信的路径。   自签证书准备在XCA官网下载并安装">
 <meta property="og:locale">
+<meta property="og:image" content="https://z3.ax1x.com/2021/04/17/c5JmdO.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/04/17/c5tVUO.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/04/17/c5tbJe.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/04/17/c5NnoT.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/04/17/c5NsOI.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/04/17/c5NoXn.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/04/17/c5U9n1.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/04/17/c5UAhD.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/04/17/c5a2Rg.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/04/17/c5waDA.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/04/17/c5wT8U.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/04/17/c5wjV1.png">
+<meta property="article:published_time" content="2021-04-17T13:40:24.458Z">
+<meta property="article:modified_time" content="2021-04-17T14:36:02.312Z">
 <meta property="article:author" content="Lparksi">
-<meta property="article:tag" content="Parksi, lparksi">
+<meta property="article:tag" content="XCA">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://z3.ax1x.com/2021/04/17/c5JmdO.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1618670167709">
+  <link rel="stylesheet" href="/css/style.css?v=1618670167703">
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Parksi" type="application/atom+xml">
 </head>
 
@@ -150,27 +167,38 @@
   </div>
   <div id="nexmoe-content">
     <div class="nexmoe-primary">
-        <section class="nexmoe-posts">
+        <div class="nexmoe-post">
+
+  <div class="nexmoe-post-right">
     
-    <div class="nexmoe-post">
-        <a href="/2021/04/17/XCA/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
-                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="XCA简易教程 附生成S/MIME证书" class="lazyload">
-                    <h1>XCA简易教程 附生成S/MIME证书</h1>
-                </div>
-            
-        </a>
-
-        <div class="nexmoe-post-meta nexmoe-rainbow-fill">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2021年04月17日</a>
-            <a><i class="nexmoefont icon-areachart"></i>535 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+      <div class="nexmoe-fixed">
+        <div class="nexmoe-valign">
+            <div class="nexmoe-toc">
+                
+                
+                  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E7%AD%BE%E8%AF%81%E4%B9%A6"><span class="toc-number">2.</span> <span class="toc-text">自签证书</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87"><span class="toc-number">2.1.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">2.2.</span> <span class="toc-text">创建数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%A0%B9%E8%AF%81%E4%B9%A6-Root-CA"><span class="toc-number">2.3.</span> <span class="toc-text">创建根证书(Root CA)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%BA%8C%E7%BA%A7%E8%AF%81%E4%B9%A6%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-number">2.4.</span> <span class="toc-text">创建二级证书（可选）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%80%E7%BB%88%E8%AF%81%E4%B9%A6-SSL"><span class="toc-number">2.5.</span> <span class="toc-text">创建最终证书(SSL)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%80%E7%BB%88%E8%AF%81%E4%B9%A6-S-MIME"><span class="toc-number">2.6.</span> <span class="toc-text">创建最终证书(S&#x2F;MIME)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%B8%A3%E8%B0%A2"><span class="toc-number">2.7.</span> <span class="toc-text">鸣谢</span></a></li></ol></li></ol>
+                
+            </div>
         </div>
+      </div>
+    
+  </div>
 
-        <article>
-            
-                <p>我们的数字化生活处处都离不开x509证书，申请ssl证书可能需要不菲的金钱，虽然也有免费的，但我们有没有什么方法自己搞定x509呢？<br><img src="https://z3.ax1x.com/2021/04/17/c5JmdO.png"></p>
+  <article>
+    
+        <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
+            <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="XCA简易教程 附生成S/MIME证书" class="lazyload">
+            <h1>XCA简易教程 附生成S/MIME证书</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta nexmoe-rainbow-fill" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2021年04月17日</a>
+    <a><i class="nexmoefont icon-areachart"></i>535 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+</div>
+
+    <p>我们的数字化生活处处都离不开x509证书，申请ssl证书可能需要不菲的金钱，虽然也有免费的，但我们有没有什么方法自己搞定x509呢？<br><img src="https://z3.ax1x.com/2021/04/17/c5JmdO.png"></p>
 <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>x509是通过证书链完成信任认证的，也就是说最终证书想要被信任就必须要有上一级的证书作签名证书。</p>
 <pre><code>Root CA -&gt; 二级CA -&gt; ... -&gt; 最终证书
 </code></pre>
@@ -214,62 +242,45 @@
 </ol>
 <h3 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h3><p>本文的出现极大程度源自于好友<a target="_blank" rel="noopener" href="https://zikin.org/">Zikin</a>的文章<a target="_blank" rel="noopener" href="https://zikin.org/xca/">XCA简易入门教程</a>。</p>
 
-            
-        </article>
-    </div>
+  </article>
+
+  
     
-    <div class="nexmoe-post">
-        <a href="/PY.html">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
-                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="links" class="lazyload">
-                    <h1>links</h1>
-                </div>
-            
-        </a>
-
-        <div class="nexmoe-post-meta nexmoe-rainbow-fill">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2021年04月17日</a>
-            <a><i class="nexmoefont icon-areachart"></i>6 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-        </div>
-
-        <article>
-            
-                <p>欢迎提交友链！</p>
-
-            
-        </article>
-    </div>
+  <div class="nexmoe-post-copyright">
+    <strong>Author：</strong>Lparksi<br>
+    <strong>Link：</strong><a href="https://www.parksi.top/2021/04/17/XCA/" title="https:&#x2F;&#x2F;www.parksi.top&#x2F;2021&#x2F;04&#x2F;17&#x2F;XCA&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;www.parksi.top&#x2F;2021&#x2F;04&#x2F;17&#x2F;XCA&#x2F;</a><br>
     
-    <div class="nexmoe-post">
-        <a href="/2021/04/17/first/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
-                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="新的开始" class="lazyload">
-                    <h1>新的开始</h1>
-                </div>
-            
-        </a>
-
-        <div class="nexmoe-post-meta nexmoe-rainbow-fill">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2021年04月17日</a>
-            <a><i class="nexmoefont icon-areachart"></i>59 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-        </div>
-
-        <article>
-            
-                <p>由于不经意间的重装系统，原博客数据已经丢失，原博客首页仍可访问，也可以从<a target="_blank" rel="noopener" href="https://github.com/Lparksi/Lparksi.github.io">Github下载</a> 预览。  </p>
-<p>此博客依托于Github Codespace 可实现永久不丢失数据。 </p>
-<p>2021.4.17</p>
-
-            
-        </article>
-    </div>
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
     
+  </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/XCA/" rel="tag">XCA</a>
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    <section class="nexmoe-comment">
+    <div class="valine"></div>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.9/dist/Valine.min.js'></script>
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    new Valine({
+        el: '.valine',
+        appId: 'PVSpBLF38StWXQ3sruWhFB99-MdYXbMMI',
+        appKey: 'xwfILImsLX3WaP1cA3OxB99h'
+    })
+</script>
 </section>
-
+  </div>
+</div>
         <!--<div class="nexmoe-post-right">
           <div class="nexmoe-fixed">
             <div class="nexmoe-tool">
@@ -291,7 +302,7 @@
 <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
  
 
-<script src="/js/app.js?v=1618670167710"></script>
+<script src="/js/app.js?v=1618670167704"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>

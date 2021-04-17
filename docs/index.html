@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1618667085559">
+  <link rel="stylesheet" href="/css/style.css?v=1618670167714">
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Parksi" type="application/atom+xml">
 </head>
 
@@ -48,9 +48,9 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>Articles</span>2</div>
-        <div><span>Tags</span>0</div>
-        <div><span>Categories</span>0</div>
+        <div><span>Articles</span>3</div>
+        <div><span>Tags</span>1</div>
+        <div><span>Categories</span>1</div>
     </div>
     <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
         
@@ -104,9 +104,40 @@
 </div>
   
   
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Categories</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/安全/">安全</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
 
   
   
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/XCA/" style="font-size: 10px;">XCA</a>
+    </div>
+    
+  </div>
+
   
 </aside>
     <div class="nexmoe-copyright">
@@ -120,6 +151,72 @@
   <div id="nexmoe-content">
     <div class="nexmoe-primary">
         <section class="nexmoe-posts">
+    
+    <div class="nexmoe-post">
+        <a href="/2021/04/17/XCA/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="XCA简易教程 附生成S/MIME证书" class="lazyload">
+                    <h1>XCA简易教程 附生成S/MIME证书</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow-fill">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2021年04月17日</a>
+            <a><i class="nexmoefont icon-areachart"></i>535 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+        </div>
+
+        <article>
+            
+                <p>我们的数字化生活处处都离不开x509证书，申请ssl证书可能需要不菲的金钱，虽然也有免费的，但我们有没有什么方法自己搞定x509呢？<br><img src="https://z3.ax1x.com/2021/04/17/c5JmdO.png"></p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>x509是通过证书链完成信任认证的，也就是说最终证书想要被信任就必须要有上一级的证书作签名证书。</p>
+<pre><code>Root CA -&gt; 二级CA -&gt; ... -&gt; 最终证书
+</code></pre>
+<p>这是浏览器等客户端验证证书是否可信的路径。  </p>
+<h2 id="自签证书"><a href="#自签证书" class="headerlink" title="自签证书"></a>自签证书</h2><h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>在<a target="_blank" rel="noopener" href="https://hohnstaedt.de/xca/index.php/download">XCA官网</a>下载并安装XCA本体。  </p>
+<h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><p><img src="https://z3.ax1x.com/2021/04/17/c5tVUO.png"></p>
+<ul>
+<li>建议把XCA数据库放到“同步目录”下，Onedrive、wps云盘、坚果云等。<h3 id="创建根证书-Root-CA"><a href="#创建根证书-Root-CA" class="headerlink" title="创建根证书(Root CA)"></a>创建根证书(Root CA)</h3></li>
+</ul>
+<ol>
+<li>首先在“证书签名请求”标签页下点击“创建请求”<br>底部模板选择 <code>CA</code> <img src="https://z3.ax1x.com/2021/04/17/c5tbJe.png"> 不要忘了点击应用全部！！！</li>
+<li>CA的名字<br>非结构化名称即为名称，随意取名即可。</li>
+</ol>
+<ul>
+<li>Root CA的名字通常以 CA、Root CA等结尾。</li>
+</ul>
+<ol start="3">
+<li>主体<br><img src="https://z3.ax1x.com/2021/04/17/c5NnoT.png"><br>上面都是选填项，最重要的是下面的私钥。<br>没什么特殊要求，一般选择RSA 2048bit</li>
+<li>检查 扩展 中是否有三项CA<br><img src="https://z3.ax1x.com/2021/04/17/c5NsOI.png"></li>
+<li>点击 OK</li>
+<li>右键刚刚的请求，选择签发。<br><img src="https://z3.ax1x.com/2021/04/17/c5NoXn.png"></li>
+<li>再次选择扩展。注意以下几项。<br><img src="https://z3.ax1x.com/2021/04/17/c5U9n1.png"></li>
+<li>在 扩展 选项卡内的时间跨度内设置证书有效期。<br><img src="https://z3.ax1x.com/2021/04/17/c5UAhD.png"></li>
+</ol>
+<ul>
+<li>一般Root CA有效期在10-30年左右</li>
+<li>可以选择未明确定义，即永不过期</li>
+</ul>
+<ol start="9">
+<li>Ok. Root CA至此创建完毕<h3 id="创建二级证书（可选）"><a href="#创建二级证书（可选）" class="headerlink" title="创建二级证书（可选）"></a>创建二级证书（可选）</h3></li>
+<li>在 证书 选项卡内右键刚刚生成的证书，选择创建。</li>
+<li>除了 签名 选项卡以外，其他按照Root CA来！<br><img src="https://z3.ax1x.com/2021/04/17/c5a2Rg.png"> <h3 id="创建最终证书-SSL"><a href="#创建最终证书-SSL" class="headerlink" title="创建最终证书(SSL)"></a>创建最终证书(SSL)</h3></li>
+<li>在 证书 选项卡内右键二级证书，选择创建。</li>
+<li>模板选择 TLS_client，其他照旧</li>
+<li><img src="https://z3.ax1x.com/2021/04/17/c5waDA.png"></li>
+<li>生成成功<h3 id="创建最终证书-S-MIME"><a href="#创建最终证书-S-MIME" class="headerlink" title="创建最终证书(S/MIME)"></a>创建最终证书(S/MIME)</h3></li>
+<li>在 证书 选项卡内右键二级证书，选择创建。</li>
+<li>模板选择 空模板，其他照旧</li>
+<li>主体修改为如下格式：<img src="https://z3.ax1x.com/2021/04/17/c5wT8U.png"></li>
+<li>扩展中选中S/MIME<br><img src="https://z3.ax1x.com/2021/04/17/c5wjV1.png"></li>
+</ol>
+<h3 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h3><p>本文的出现极大程度源自于好友<a target="_blank" rel="noopener" href="https://zikin.org/">Zikin</a>的文章<a target="_blank" rel="noopener" href="https://zikin.org/xca/">XCA简易入门教程</a>。</p>
+
+            
+        </article>
+    </div>
     
     <div class="nexmoe-post">
         <a href="/PY.html">
@@ -194,7 +291,7 @@
 <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
  
 
-<script src="/js/app.js?v=1618667085560"></script>
+<script src="/js/app.js?v=1618670167715"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
