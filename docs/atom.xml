@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Parksi</title>
+  
+  
+  <link href="https://www.parksi.top/atom.xml" rel="self"/>
+  
+  <link href="https://www.parksi.top/"/>
+  <updated>2021-04-17T03:06:57.689Z</updated>
+  <id>https://www.parksi.top/</id>
+  
+  <author>
+    <name>Lparksi</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>links</title>
+    <link href="https://www.parksi.top/PY.html"/>
+    <id>https://www.parksi.top/PY.html</id>
+    <published>2021-04-17T03:04:57.187Z</published>
+    <updated>2021-04-17T03:06:57.689Z</updated>
+    
+    <content type="html"><![CDATA[<p>欢迎提交友链！</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;欢迎提交友链！&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>新的开始</title>
+    <link href="https://www.parksi.top/2021/04/17/first/"/>
+    <id>https://www.parksi.top/2021/04/17/first/</id>
+    <published>2021-04-17T03:00:12.007Z</published>
+    <updated>2021-04-17T03:08:42.398Z</updated>
+    
+    <content type="html"><![CDATA[<p>由于不经意间的重装系统，原博客数据已经丢失，原博客首页仍可访问，也可以从<a href="https://github.com/Lparksi/Lparksi.github.io">Github下载</a> 预览。  </p><p>此博客依托于Github Codespace 可实现永久不丢失数据。 </p><p>2021.4.17</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;由于不经意间的重装系统，原博客数据已经丢失，原博客首页仍可访问，也可以从&lt;a href=&quot;https://github.com/Lparksi/Lparksi.github.io&quot;&gt;Github下载&lt;/a&gt; 预览。  &lt;/p&gt;
+&lt;p&gt;此博客依托于Github Codespa</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
